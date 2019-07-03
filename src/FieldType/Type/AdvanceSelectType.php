@@ -4,6 +4,12 @@ namespace FieldType\Type;
 
 class AdvanceSelectType extends AbstractType
 {
+    public static function init()
+    {
+        self::addAction();
+        self::addFilter();
+    }
+
     public static function addAction()
     {
         parent::addAction();

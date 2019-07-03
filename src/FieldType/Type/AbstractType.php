@@ -2,14 +2,9 @@
 
 namespace FieldType\Type;
 
-class AbstractType
+abstract class AbstractType
 {
-    public static function init()
-    {
-        self::addAction();
-        self::addFilter();
-
-    }
+    abstract public static function init();
 
     public static function addAction()
     {
