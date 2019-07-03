@@ -2,6 +2,14 @@
   "name": "narmafzam/cmb2-field-types",
   "license": "proprietary",
   "type": "project",
+  "keywords": ["wordpress", "plugin", "fields", "cmb2"],
+  "authors": [
+    {
+      "name": "Farshad Asgharzade",
+      "email": "farshadasgharzade@gmail.com",
+      "role": "Developer"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "FieldType\\": "src/FieldType"
