@@ -13,13 +13,13 @@ class SizeType extends AbstractType
     public static function addAction()
     {
         parent::addAction();
-        add_action( 'cmb2_render_size', 'FieldType\\SizeType::render', 10, 5 );
+        add_action( 'cmb2_render_size', 'FieldType\\Type\\SizeType::render', 10, 5 );
     }
 
     public static function addFilter()
     {
         parent::addFilter();
-        add_filter( 'cmb2_sanitize_size', 'FieldType\\SizeType::callback', 10, 2 );
+        add_filter( 'cmb2_sanitize_size', 'FieldType\\Type\\SizeType::callback', 10, 2 );
     }
 
     public static function render( $field, $value, $objectId, $objectType, $fieldType ) {

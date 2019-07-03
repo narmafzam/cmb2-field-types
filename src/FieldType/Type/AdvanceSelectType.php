@@ -13,13 +13,13 @@ class AdvanceSelectType extends AbstractType
     public static function addAction()
     {
         parent::addAction();
-        add_action( 'cmb2_render_advanced_select', 'FieldType\\AdvanceSelectType::render', 10, 5 );
+        add_action( 'cmb2_render_advanced_select', 'FieldType\\Type\\AdvanceSelectType::render', 10, 5 );
     }
 
     public static function addFilter()
     {
         parent::addFilter();
-        add_filter( 'cmb2_sanitize_advanced_select', 'FieldType\\AdvanceSelectType::callback', 10, 2 );
+        add_filter( 'cmb2_sanitize_advanced_select', 'FieldType\\Type\\AdvanceSelectType::callback', 10, 2 );
     }
 
     public static function render( $field, $escapedValue, $objectId, $objectType, $fieldTypeObject ) {

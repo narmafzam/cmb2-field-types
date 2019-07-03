@@ -13,7 +13,7 @@ class MultiButtonType extends AbstractType
     public static function addAction()
     {
         parent::addAction();
-        add_action( 'cmb2_render_multi_buttons', 'FieldType\\MultiButtonType::render', 10, 5 );
+        add_action( 'cmb2_render_multi_buttons', 'FieldType\\Type\\MultiButtonType::render', 10, 5 );
     }
 
     public static function render($field, $escapedValue, $objectId, $objectType, $fieldType)

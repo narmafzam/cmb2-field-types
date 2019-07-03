@@ -13,7 +13,7 @@ class ButtonType extends AbstractType
     public static function addAction()
     {
         parent::addAction();
-        add_action( 'cmb2_render_button', 'FieldType\\ButtonType::render', 10, 5 );
+        add_action( 'cmb2_render_button', 'FieldType\\Type\\ButtonType::render', 10, 5 );
     }
 
     public static function render($field, $value, $objectId, $objectType, $fieldType)
