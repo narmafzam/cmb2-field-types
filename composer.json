@@ -1,0 +1,18 @@
+{
+  "name": "narmafzam/cmb2-field-types",
+  "license": "proprietary",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "FieldType\\": "src/FieldType"
+    },
+    "files": [
+      "field-type"
+    ]
+  },
+  "require": {
+    "php": ">=5.3",
+    "narmafzam/cmb2": "dev-master"
+  },
+  "minimum-stability": "dev"
+}
