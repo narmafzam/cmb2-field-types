@@ -15,7 +15,7 @@
       "FieldType\\": "src/FieldType"
     },
     "files": [
-      "field-type"
+      "field-type.php"
     ]
   },
   "require": {
