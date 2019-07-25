@@ -3,14 +3,14 @@ let Encore = require('@symfony/webpack-encore');
 Encore
     .disableSingleRuntimeChunk()
     .configureFilenames({
-        js: 'js/[name].[contenthash].js',
-        css: 'css/[name].[contenthash].css',
-        images: 'img/[name].[hash:4].[ext]',
-        fonts: 'font/[name].[hash:4].[ext]'
+        js: 'js/[name].js',
+        css: 'css/[name].css',
+        images: 'img/[name].[ext]',
+        fonts: 'font/[name].[ext]'
     })
-    .setOutputPath('./asset/b/')
-    .setPublicPath('/b')
-    .setManifestKeyPrefix('b')
+    .setOutputPath('./dist')
+    .setPublicPath('/dist')
+    .setManifestKeyPrefix('dist')
     .cleanupOutputBeforeBuild()
     .enableSassLoader(function (sassOptions) {
     }, {

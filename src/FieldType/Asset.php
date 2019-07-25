@@ -21,15 +21,14 @@ class Asset extends BaseClass
 
     public static function enqueue()
     {
-        $home = Utility::getHomeDirectoryName(__DIR__);
         wp_enqueue_script(
             self::FIELD_TYPE_SCRIPT,
-            self::get('field.js', null, 's', "vendor/{$home}/b"),
+            Utility::getAssetUrl('/js/field.js'),
             array('jquery')
         );
         wp_enqueue_style(
             self::FIELD_TYPE_STYLE,
-            self::get('field.css', null, 's', "vendor/{$home}/b")
+            Utility::getAssetUrl('/css/field.css')
         );
     }
 }

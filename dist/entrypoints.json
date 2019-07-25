@@ -1,0 +1,12 @@
+{
+  "entrypoints": {
+    "field": {
+      "css": [
+        "/dist/css/field.css"
+      ],
+      "js": [
+        "/dist/js/field.js"
+      ]
+    }
+  }
+}

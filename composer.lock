@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9bc056ec0d7f0d4f3ba78e3dc67017ca",
+    "content-hash": "3a5dae736413c2d8c7442403c37b8632",
     "packages": [
         {
             "name": "narmafzam/cmb2",
@@ -47,16 +47,16 @@
         },
         {
             "name": "narmafzam/generic",
-            "version": "1.0.3",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/narmafzam/generic.git",
-                "reference": "b6dbd05d169f00d70a2b006070840b5902e7ae2f"
+                "reference": "962a749b9cdb43298550b641e350f89916d83854"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/narmafzam/generic/zipball/b6dbd05d169f00d70a2b006070840b5902e7ae2f",
-                "reference": "b6dbd05d169f00d70a2b006070840b5902e7ae2f",
+                "url": "https://api.github.com/repos/narmafzam/generic/zipball/962a749b9cdb43298550b641e350f89916d83854",
+                "reference": "962a749b9cdb43298550b641e350f89916d83854",
                 "shasum": ""
             },
             "require": {
@@ -67,10 +67,7 @@
             "autoload": {
                 "psr-4": {
                     "Generic\\": "src/Generic"
-                },
-                "files": [
-                    "field-type.php"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -89,7 +86,7 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2019-07-25T09:13:02+00:00"
+            "time": "2019-07-25T12:17:48+00:00"
         },
         {
             "name": "symfony/asset",
