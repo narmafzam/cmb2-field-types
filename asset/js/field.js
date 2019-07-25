@@ -11,16 +11,19 @@ import "flickity-fade";
 $(document).ready(function () {
 
     let observer = new MutationObserver(function (mutations) {
-        if (isInViewport($('.slider-type'))) {
-            new Flickity('.slider-type', {
-                rightToLeft: true,
-                imagesLoaded: true,
-                pageDots: false,
-                fullscreen: true,
-                lazyLoad: true,
-                wrapAround: true,
-            });
-        }
+
+        $('.slider-type').each(function (item, index) {
+            if (isInViewport(item)) {
+                new Flickity('.slider-type', {
+                    rightToLeft: true,
+                    imagesLoaded: true,
+                    pageDots: false,
+                    fullscreen: true,
+                    lazyLoad: true,
+                    wrapAround: true,
+                });
+            }
+        });
     });
     observer.observe(document, {
         childList: true,
