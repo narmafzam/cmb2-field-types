@@ -14,13 +14,16 @@ $(document).ready(function () {
     Flickity.setJQuery( $ );
     jQueryBridget( 'flickity', Flickity, $ );
 
+    let initSliders = {};
+
     let observer = new MutationObserver(function (mutations) {
 
         $('.slider-type').each(function (index, item) {
             if (isInViewport($(item))) {
+                let id = item.id;
+                let element = $('#' + id);
                 if (!$(item).hasClass('flickity-enabled')) {
-                    let id = item.id;
-                    let $carousel = $('#' + id).flickity({
+                    initSliders[id] = element.flickity({
                         rightToLeft: true,
                         imagesLoaded: true,
                         pageDots: false,
@@ -28,15 +31,8 @@ $(document).ready(function () {
                         lazyLoad: true,
                         wrapAround: true,
                     });
-
-                    // new Flickity('#' + id, {
-                    //     rightToLeft: true,
-                    //     imagesLoaded: true,
-                    //     pageDots: false,
-                    //     fullscreen: true,
-                    //     lazyLoad: true,
-                    //     wrapAround: true,
-                    // });
+                } else if (!id in initSliders) {
+                    element.flickity('resize')
                 }
             }
         });
