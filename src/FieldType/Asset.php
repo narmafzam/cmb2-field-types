@@ -16,7 +16,7 @@ class Asset extends BaseClass
 
     public static function addAction()
     {
-        add_action('');
+        add_action('cmb2_footer_enqueue', 'FieldType\\Asset::enqueue');
     }
 
     public static function enqueue()
