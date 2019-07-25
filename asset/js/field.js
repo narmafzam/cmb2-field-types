@@ -25,7 +25,13 @@ $(document).ready(function () {
                 let name = $(item).attr('name').split('[')[0];
                 let alreadyExist = name in initSliders;
                 if (!alreadyExist) {
-                    initSliders[name] = $('#' + id).flickity(options);
+                    let slider = $('#' + id).flickity(options);
+                    slider.on( 'change.flickity', function( event, index ) {
+                        let flkty = slider.data('flickity');
+                        let selected = flkty.selectedElement;
+                        console.log( 'Slide changed to ' + selected )
+                    });
+                    initSliders[name] = slider;
                 }
             }
         });

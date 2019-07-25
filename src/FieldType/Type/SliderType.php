@@ -32,14 +32,14 @@ class SliderType extends AbstractType
             $attrs   = self::generateAttrs($fieldType, [], $attrs);
         }
 
-        $defaultClass = 'image-container';
-        if ( isset( $field->args['image-container-attr'] )) {
-            $imageContainerAttr   = self::generateAttrs($fieldType, $field->args['image-container-attr'], ['class' => $defaultClass]);
-        } else {
-            $imageContainerAttr   = self::generateAttrs($fieldType, [], ['class' => $defaultClass]);
-        }
+//        $defaultClass = 'image-container';
+//        if ( isset( $field->args['image-container-attr'] )) {
+//            $imageContainerAttr   = self::generateAttrs($fieldType, $field->args['image-container-attr'], ['class' => $defaultClass]);
+//        } else {
+//            $imageContainerAttr   = self::generateAttrs($fieldType, [], ['class' => $defaultClass]);
+//        }
 
-        $defaultClass = 'slider-image img-fluid';
+        $defaultClass = 'slider-image';
         if ( isset( $field->args['image-attr'] )) {
             $imageAttrs   = self::generateAttrs($fieldType, $field->args['image-attr'], ['class' => $defaultClass]);
         } else {
@@ -50,7 +50,7 @@ class SliderType extends AbstractType
         if ( isset( $field->args['images'] ) ) {
             foreach ( $field->args['images'] as $alt => $image ) {
                 if ( ! empty( $image ) ) {
-                    $images .= "<div {$imageContainerAttr}><img src=\"{$image}\" alt=\"...\" {$imageAttrs}/></div>";
+                    $images .= "<img src=\"{$image}\" alt=\"...\" {$imageAttrs}/>";
                 }
             }
         }
