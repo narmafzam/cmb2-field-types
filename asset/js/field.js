@@ -54,14 +54,6 @@ $(document).ready(function () {
         }
     });
 
-    $('body').on('click', '.cmb-remove-group-row', function () {
-        let table = $('#' + element.data('selector'));
-        let sliders = table.find('.cmb-repeatable-grouping');
-        if (sliders.length > 0) {
-            console.log(sliders.length)
-        }
-    });
-
     function getGroupLastRow(element) {
         let table = $('#' + element.data('selector'));
         return table.find('.cmb-repeatable-grouping').last();
