@@ -13,7 +13,7 @@ $(document).ready(function () {
     let observer = new MutationObserver(function (mutations) {
 
         $('.slider-type').each(function (index, item) {
-            if (isInViewport(item)) {
+            if (isInViewport($(item))) {
                 new Flickity('.slider-type', {
                     rightToLeft: true,
                     imagesLoaded: true,
