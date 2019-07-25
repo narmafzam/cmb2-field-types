@@ -3,6 +3,8 @@ require('../scss/field.scss');
 import $ from "jquery";
 
 import Flickity from "flickity";
+import "flickity-imagesloaded";
+import "flickity-fullscreen";
 import "flickity-as-nav-for";
 import "flickity-fade";
 
@@ -15,6 +17,7 @@ $(document).ready(function () {
                 imagesLoaded: true,
                 pageDots: false,
                 fullscreen: true,
+                lazyLoad: true,
                 wrapAround: true,
             });
         }

@@ -2521,7 +2521,7 @@ etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
-ev-emitter@^1.0.1, ev-emitter@^1.1.1:
+ev-emitter@^1.0.0, ev-emitter@^1.0.1, ev-emitter@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ev-emitter/-/ev-emitter-1.1.1.tgz#8f18b0ce5c76a5d18017f71c0a795c65b9138f2a"
   integrity sha512-ipiDYhdQSCZ4hSbX4rMW+XzNKMD1prg/sTvoVmSLkuQ1MVlwjJQQA+sW8tMYR3BLUr9KjodFV4pvzunvRhd33Q==
@@ -2786,7 +2786,22 @@ flickity-fade@^1.0.0:
     fizzy-ui-utils "^2.0.0"
     flickity "^2.2.0"
 
-flickity@^2.0.0, flickity@^2.2.0, flickity@^2.2.1:
+flickity-fullscreen@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/flickity-fullscreen/-/flickity-fullscreen-1.1.1.tgz#76d8c621ff45f086d5f4eab841f788e1fc48169b"
+  integrity sha512-r9hxDXizjvXgBSwCwbqfaXDZRy02uH8UM73VvnxCml0ogKexpqZSlsit5hmGcJUKrtEx3svklJbGX0XUO8Z6DA==
+  dependencies:
+    flickity "^2.1.0"
+
+flickity-imagesloaded@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/flickity-imagesloaded/-/flickity-imagesloaded-2.0.0.tgz#a2d1d6aae6c26369ef2fa44f3eb948ea474e976b"
+  integrity sha1-otHWqubCY2nvL6RPPrlI6kdOl2s=
+  dependencies:
+    flickity "^2.0.0"
+    imagesloaded "^4.1.0"
+
+flickity@^2.0.0, flickity@^2.1.0, flickity@^2.2.0, flickity@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/flickity/-/flickity-2.2.1.tgz#81126e3d656cb54577358a5f959ffdbda088e670"
   integrity sha512-fCZJGNqabgDrIhaUBqt2ydE8c5V6iiB3KQAf6dH3Z45MoDUm7g6+uZmteN0aLV9pzVItNqCbfOJQjsJM/rHuSA==
@@ -3358,6 +3373,13 @@ ignore-walk@^3.0.1:
   integrity sha512-DTVlMx3IYPe0/JJcYP7Gxg7ttZZu3IInhuEhbchuqneY9wWe5Ojy2mXLBaQFUQmo0AW2r3qG7m1mg86js+gnlQ==
   dependencies:
     minimatch "^3.0.4"
+
+imagesloaded@^4.1.0:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/imagesloaded/-/imagesloaded-4.1.4.tgz#1376efcd162bb768c34c3727ac89cc04051f3cc7"
+  integrity sha512-ltiBVcYpc/TYTF5nolkMNsnREHW+ICvfQ3Yla2Sgr71YFwQ86bDwV9hgpFhFtrGPuwEx5+LqOHIrdXBdoWwwsA==
+  dependencies:
+    ev-emitter "^1.0.0"
 
 import-fresh@^2.0.0:
   version "2.0.0"
