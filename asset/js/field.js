@@ -1,7 +1,7 @@
 require('../scss/field.scss');
 
 import $ from "jquery";
-
+import jQueryBridget from "jquery-bridget";
 import Flickity from "flickity";
 import "flickity-imagesloaded";
 import "flickity-fullscreen";
@@ -10,18 +10,22 @@ import "flickity-fade";
 
 $(document).ready(function () {
 
-    let observer = new MutationObserver(function (mutations) {
+    Flickity.setJQuery( $ );
+    jQueryBridget( 'flickity', Flickity, $ );
 
+    let observer = new MutationObserver(function (mutations) {
+        // new Flickity('.slider-type', {
+        // });
         $('.slider-type').each(function (index, item) {
             if (isInViewport($(item))) {
-                new Flickity('.slider-type', {
+                item.flickity({
                     rightToLeft: true,
                     imagesLoaded: true,
                     pageDots: false,
                     fullscreen: true,
                     lazyLoad: true,
                     wrapAround: true,
-                });
+                })
             }
         });
     });
