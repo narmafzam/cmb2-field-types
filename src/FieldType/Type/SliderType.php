@@ -22,7 +22,7 @@ class SliderType extends AbstractType
         $attrs        = $fieldType->parse_args( 'slider', array(
             'type'  => 'slider',
             'name'  => $fieldType->_name(),
-            'id'    => $fieldType->_id(),
+            'id'    => $fieldType->_id() . '_' . 'container',
             'class' => 'slider-type',
         ));
 
@@ -55,7 +55,7 @@ class SliderType extends AbstractType
             }
         }
 
-        echo sprintf( '<div %s>%s</div>',
+        echo sprintf( "<div %s>%s<input type=\"hidden\" id=\"{$fieldType->_id()}\"/></div>",
             $attrs,
             $images
         );

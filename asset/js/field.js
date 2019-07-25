@@ -29,7 +29,7 @@ $(document).ready(function () {
                     slider.on( 'change.flickity', function( event, index ) {
                         let flkty = slider.data('flickity');
                         let selected = flkty.selectedElement;
-                        console.log( 'Slide changed to ' + selected )
+                        slider.find('input').val($(selected).attr('src'));
                     });
                     initSliders[name] = slider;
                 }
