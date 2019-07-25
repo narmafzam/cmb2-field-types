@@ -12,7 +12,8 @@ import "flickity-fade";
 $(document).ready(function () {
     let options = {
         rightToLeft: true,
-        lazyLoad: 2
+        lazyLoad: 2,
+        pageDots: false
     };
     Flickity.setJQuery($);
     jQueryBridget('flickity', Flickity, $);
