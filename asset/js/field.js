@@ -13,7 +13,7 @@ $(document).ready(function () {
     let options = {
         rightToLeft: true,
         lazyLoad: 2,
-        pageDots: false
+        pageDots: true
     };
     Flickity.setJQuery($);
     jQueryBridget('flickity', Flickity, $);
