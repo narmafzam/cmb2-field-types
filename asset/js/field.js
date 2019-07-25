@@ -73,11 +73,16 @@ $(document).ready(function () {
     function initSlider(selector) {
         let slider = $(selector).flickity(options);
         slider.on( 'change.flickity', function( event, index ) {
-            let flkty = slider.data('flickity');
-            let selected = flkty.selectedElement;
-            slider.parent().find('input').val($(selected).attr('src'));
+            storeSelectedElement(slider)
         });
+        storeSelectedElement(slider);
         return slider;
+    }
+
+    function storeSelectedElement(slider) {
+        let flkty = slider.data('flickity');
+        let selected = flkty.selectedElement;
+        slider.parent().find('input').val($(selected).attr('src'));
     }
 
 });
