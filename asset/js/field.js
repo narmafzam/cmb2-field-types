@@ -63,6 +63,9 @@ $(document).ready(function () {
     function reinitializedFlickity(imageChilds) {
         imageChilds.parent().parent().replaceWith(imageChilds);
         imageChilds.parent().find('button').remove();
+        if (true === options.pageDots || !'pageDots' in options) {
+            imageChilds.parent().find('ol').remove();
+        }
         imageChilds.parent().removeClass('flickity-enabled');
         initSlider(imageChilds.parent())
     }
