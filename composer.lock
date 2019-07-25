@@ -1,0 +1,163 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "9bc056ec0d7f0d4f3ba78e3dc67017ca",
+    "packages": [
+        {
+            "name": "narmafzam/cmb2",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/narmafzam/CMB2.git",
+                "reference": "900fb9f7513708c91611c1322f286e48686d9d07"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/narmafzam/CMB2/zipball/900fb9f7513708c91611c1322f286e48686d9d07",
+                "reference": "900fb9f7513708c91611c1322f286e48686d9d07",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">5.2.4"
+            },
+            "require-dev": {
+                "apigen/apigen": "4.1.2",
+                "nette/utils": "2.5.3",
+                "phpunit/phpunit": "6.5.13"
+            },
+            "suggest": {
+                "composer/installers": "~1.0"
+            },
+            "type": "project",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CMB2 is a metabox, custom fields, and forms library for WP that will blow your mind.",
+            "homepage": "https://github.com/narmafzam/CMB2",
+            "keywords": [
+                "metabox",
+                "plugin",
+                "wordpress"
+            ],
+            "time": "2019-07-02T18:20:25+00:00"
+        },
+        {
+            "name": "narmafzam/generic",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/narmafzam/generic.git",
+                "reference": "b6dbd05d169f00d70a2b006070840b5902e7ae2f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/narmafzam/generic/zipball/b6dbd05d169f00d70a2b006070840b5902e7ae2f",
+                "reference": "b6dbd05d169f00d70a2b006070840b5902e7ae2f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2",
+                "symfony/asset": "4.3.1"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "Generic\\": "src/Generic"
+                },
+                "files": [
+                    "field-type.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Farshad Asgharzade",
+                    "role": "Developer",
+                    "email": "farshadasgharzade@gmail.com"
+                }
+            ],
+            "keywords": [
+                "CMB2",
+                "fields",
+                "plugin",
+                "wordpress"
+            ],
+            "time": "2019-07-25T09:13:02+00:00"
+        },
+        {
+            "name": "symfony/asset",
+            "version": "v4.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/asset.git",
+                "reference": "eecf6d6c952c2c80c9b4fa3ec089d222420f1569"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/asset/zipball/eecf6d6c952c2c80c9b4fa3ec089d222420f1569",
+                "reference": "eecf6d6c952c2c80c9b4fa3ec089d222420f1569",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "symfony/http-foundation": "~3.4|~4.0",
+                "symfony/http-kernel": "~3.4|~4.0"
+            },
+            "suggest": {
+                "symfony/http-foundation": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Asset\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Asset Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-05-30T16:10:05+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "narmafzam/cmb2": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=7.2"
+    },
+    "platform-dev": []
+}

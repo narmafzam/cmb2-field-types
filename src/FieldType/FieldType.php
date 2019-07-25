@@ -14,6 +14,7 @@ class FieldType
 {
     public static function init()
     {
+        Asset::init();
         AdvanceSelectType::init();
         MultiButtonType::init();
         DisplayType::init();

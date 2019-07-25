@@ -1,0 +1,24 @@
+@import "~flickity/css/flickity.css";
+@import "~flickity-fade/flickity-fade.css";
+
+.slider-type {
+  max-height: 200px;
+}
+
+.image-container {
+  width: 100%;
+  height: 200px;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-type.is-fullscreen .image-container {
+  height: 100%;
+}
+
+.slider-image img {
+  display: block;
+  max-height: 100%;
+}

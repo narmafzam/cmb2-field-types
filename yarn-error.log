@@ -1,0 +1,43 @@
+Arguments: 
+  /usr/bin/node /usr/local/bin/yarn install
+
+PATH: 
+  /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/farshad/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/home/farshad/bin:/usr/local/java/jdk1.8.0_201/bin
+
+Yarn version: 
+  1.13.0
+
+Node version: 
+  10.15.2
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/farshad/Projects/wp-plugin/narmafzam/cmb2-field-types/package.json: Unexpected token } in JSON at position 96
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:304:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:315:13
+
+npm manifest: 
+  {
+    "license": "UNLICENSED",
+    "devDependencies": {
+      "@symfony/webpack-encore": "^0.27.0",
+    },
+    "dependencies": {
+      "jquery": "^3.4.1",
+      "jquery-bridget": "^2.0.1",
+      "flickity": "^2.2.1",
+      "flickity-as-nav-for": "^2.0.1",
+      "flickity-fade": "^1.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

@@ -13,48 +13,69 @@ class SliderType extends AbstractType
     public static function addAction()
     {
         parent::addAction();
-        add_action('cmb2_render_button', 'FieldType\\Type\\SliderType::render', 10, 5);
+        add_action( 'cmb2_render_slider', 'FieldType\\Type\\SliderType::render', 10, 5 );
     }
 
-    public static function render($field, $value, $objectId, $objectType, $fieldType)
+    public static function render( $field, $value, $objectId, $objectType, $fieldType )
     {
         // Parse args
-        $attrs = $fieldType->parse_args('slider', array(
-            'type' => 'slider',
-            'name' => $fieldType->_name(),
-            'id' => $fieldType->_id(),
-            'data-flickity' => self::array2json($field->args['flickity'])
+        $attrs        = $fieldType->parse_args( 'slider', array(
+            'type'  => 'slider',
+            'name'  => $fieldType->_name(),
+            'id'    => $fieldType->_id(),
+            'class' => 'slider-type',
         ));
-        $imageAttrs = [];
-        $defaultClass = 'img-fluid rounded ';
-        if (isset($field->args['image-attr'])
-            && is_array($field->args['image-attr'])) {
-            $imageAttrs = $field->args['image-attr'];
-            if (isset($imageAttrs['class'])) {
-                $imageAttrs['class'] = $defaultClass . $imageAttrs['class'];
-            } else {
-                $imageAttrs['class'] = $defaultClass;
-            }
-            $imageAttrs = $fieldType->concat_attrs($imageAttrs);
+
+        if ( isset( $field->args['container-attr'] )) {
+            $attrs   = self::generateAttrs($fieldType, $field->args['container-attr'], $attrs);
+        } else {
+            $attrs   = self::generateAttrs($fieldType, [], $attrs);
         }
-        $images = '';
-        if (isset($field->args['images'])) {
-            foreach ($field->args['images'] as $alt => $image) {
-                if (!empty($image)) {
-                    $images = "<div class=\"w-100\"><img src=\"{$image}\" alt=\"{$alt}\" {$imageAttrs}\"></div>";
+
+        $defaultClass = 'image-container';
+        if ( isset( $field->args['image-container-attr'] )) {
+            $imageContainerAttr   = self::generateAttrs($fieldType, $field->args['image-container-attr'], ['class' => $defaultClass]);
+        } else {
+            $imageContainerAttr   = self::generateAttrs($fieldType, [], ['class' => $defaultClass]);
+        }
+
+        $defaultClass = 'slider-image img-fluid';
+        if ( isset( $field->args['image-attr'] )) {
+            $imageAttrs   = self::generateAttrs($fieldType, $field->args['image-attr'], ['class' => $defaultClass]);
+        } else {
+            $imageAttrs   = self::generateAttrs($fieldType, [], ['class' => $defaultClass]);
+        }
+
+        $images     = '';
+        if ( isset( $field->args['images'] ) ) {
+            foreach ( $field->args['images'] as $alt => $image ) {
+                if ( ! empty( $image ) ) {
+                    $images .= "<div {$imageContainerAttr}><img src=\"{$image}\" alt=\"...\" {$imageAttrs}/></div>";
                 }
             }
         }
 
-        echo sprintf('<div %s>%s</div>',
-            $fieldType->concat_attrs($attrs),
+        echo sprintf( '<div %s>%s</div>',
+            $attrs,
             $images
         );
     }
 
-    public static function array2json($array)
+    public static function array2json( $array )
     {
-        return json_encode($array);
+        return json_encode( $array );
     }
 
+    public static function generateAttrs($fieldType, $attrs, $defaults)
+    {
+        $targetAttr = [];
+        foreach ($defaults as $key => $default) {
+            if ( isset( $attrs[$key] ) ) {
+                $targetAttr[$key] = $default . ' ' . $targetAttr[$key];
+            } else {
+                $targetAttr[$key] = $default;
+            }
+        }
+        return $fieldType->concat_attrs( $targetAttr );
+    }
 }

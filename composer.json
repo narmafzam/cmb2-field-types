@@ -20,7 +20,8 @@
   },
   "require": {
     "php": ">=7.2",
-    "narmafzam/cmb2": "dev-master"
+    "narmafzam/cmb2": "dev-master",
+    "narmafzam/generic": "1.0.3"
   },
   "minimum-stability": "dev"
 }
