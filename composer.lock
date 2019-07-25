@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a5dae736413c2d8c7442403c37b8632",
+    "content-hash": "bd04a7df8ff6cc148396ad06abd28712",
     "packages": [
         {
             "name": "narmafzam/cmb2",
@@ -47,16 +47,16 @@
         },
         {
             "name": "narmafzam/generic",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/narmafzam/generic.git",
-                "reference": "962a749b9cdb43298550b641e350f89916d83854"
+                "reference": "8604701729248b75aad71afd74cb96daa8c0eeb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/narmafzam/generic/zipball/962a749b9cdb43298550b641e350f89916d83854",
-                "reference": "962a749b9cdb43298550b641e350f89916d83854",
+                "url": "https://api.github.com/repos/narmafzam/generic/zipball/8604701729248b75aad71afd74cb96daa8c0eeb8",
+                "reference": "8604701729248b75aad71afd74cb96daa8c0eeb8",
                 "shasum": ""
             },
             "require": {
@@ -86,7 +86,7 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2019-07-25T12:17:48+00:00"
+            "time": "2019-07-25T13:01:36+00:00"
         },
         {
             "name": "symfony/asset",
