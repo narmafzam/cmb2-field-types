@@ -23,7 +23,8 @@ $(document).ready(function () {
                 let id = item.id;
                 let element = $('#' + id);
                 if (!$(item).hasClass('flickity-enabled')) {
-                    initSliders[id] = element.flickity({
+                    initSliders[index] = id;
+                    element.flickity({
                         rightToLeft: true,
                         imagesLoaded: true,
                         pageDots: false,
