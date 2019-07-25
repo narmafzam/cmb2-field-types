@@ -10,33 +10,26 @@ import "flickity-as-nav-for";
 import "flickity-fade";
 
 $(document).ready(function () {
-
-    Flickity.setJQuery( $ );
-    jQueryBridget( 'flickity', Flickity, $ );
-
+    let options = {
+        rightToLeft: true,
+        lazyLoad: 2
+    };
+    Flickity.setJQuery($);
+    jQueryBridget('flickity', Flickity, $);
     let initSliders = {};
-
     let observer = new MutationObserver(function (mutations) {
 
         $('.slider-type').each(function (index, item) {
             if (isInViewport($(item))) {
                 let id = item.id;
-                let element = $('#' + id);
-                if (!$(item).hasClass('flickity-enabled')) {
-                    initSliders[index] = id;
-                    element.flickity({
-                        rightToLeft: true,
-                        imagesLoaded: true,
-                        pageDots: false,
-                        fullscreen: true,
-                        lazyLoad: true,
-                        wrapAround: true,
-                    });
-                } else if (Object.values(initSliders).indexOf(id) < 0) {
-                    element.flickity('resize')
+                let name = $(item).attr('name').split('[')[0];
+                let alreadyExist = name in initSliders;
+                if (!alreadyExist) {
+                    initSliders[name] = $('#' + id).flickity(options);
                 }
             }
         });
+
     });
     observer.observe(document, {
         childList: true,
@@ -53,4 +46,33 @@ $(document).ready(function () {
 
         return elementBottom > viewportTop && elementTop < viewportBottom;
     }
+
+    $('body').on('click', '.cmb-add-group-row', function () {
+        let newSlider = getGroupLastRow($(this)).find('.slider-type');
+        if (newSlider.length > 0 && newSlider.hasClass('flickity-enabled')) {
+            destroyFlickity(newSlider.find('.slider-image'))
+        }
+    });
+
+    $('body').on('click', '.cmb-remove-group-row', function () {
+        let table = $('#' + element.data('selector'));
+        let sliders = table.find('.cmb-repeatable-grouping');
+        if (sliders.length > 0) {
+            console.log(sliders.length)
+        }
+    });
+
+    function getGroupLastRow(element) {
+        let table = $('#' + element.data('selector'));
+        return table.find('.cmb-repeatable-grouping').last();
+    }
+
+    function destroyFlickity(imageChilds) {
+        //slider-type flickity-enabled flickity-rtl is-draggable
+        imageChilds.parent().parent().replaceWith(imageChilds);
+        imageChilds.parent().find('button').remove();
+        imageChilds.parent().removeClass('flickity-enabled');
+        imageChilds.parent().flickity(options)
+    }
+
 });
