@@ -32,7 +32,7 @@ $(document).ready(function () {
                         lazyLoad: true,
                         wrapAround: true,
                     });
-                } else if (!id in initSliders) {
+                } else if (Object.values(initSliders).indexOf(id)  === -1) {
                     element.flickity('resize')
                 }
             }
