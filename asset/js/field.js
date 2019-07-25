@@ -26,13 +26,7 @@ $(document).ready(function () {
                 let name = $(item).attr('name').split('[')[0];
                 let alreadyExist = name in initSliders;
                 if (!alreadyExist) {
-                    let slider = $('#' + id).flickity(options);
-                    slider.on( 'change.flickity', function( event, index ) {
-                        let flkty = slider.data('flickity');
-                        let selected = flkty.selectedElement;
-                        slider.find('input').val($(selected).attr('src'));
-                    });
-                    initSliders[name] = slider;
+                    initSliders[name] = initSlider('#' + id);
                 }
             }
         });
@@ -57,7 +51,7 @@ $(document).ready(function () {
     $('body').on('click', '.cmb-add-group-row', function () {
         let newSlider = getGroupLastRow($(this)).find('.slider-type');
         if (newSlider.length > 0 && newSlider.hasClass('flickity-enabled')) {
-            destroyFlickity(newSlider.find('.slider-image'))
+            reinitializedFlickity(newSlider.find('.slider-image'))
         }
     });
 
@@ -66,12 +60,21 @@ $(document).ready(function () {
         return table.find('.cmb-repeatable-grouping').last();
     }
 
-    function destroyFlickity(imageChilds) {
-        //slider-type flickity-enabled flickity-rtl is-draggable
+    function reinitializedFlickity(imageChilds) {
         imageChilds.parent().parent().replaceWith(imageChilds);
         imageChilds.parent().find('button').remove();
         imageChilds.parent().removeClass('flickity-enabled');
-        imageChilds.parent().flickity(options)
+        initSlider(imageChilds.parent())
+    }
+
+    function initSlider(selector) {
+        let slider = $(selector).flickity(options);
+        slider.on( 'change.flickity', function( event, index ) {
+            let flkty = slider.data('flickity');
+            let selected = flkty.selectedElement;
+            slider.parent().find('input').val($(selected).attr('src'));
+        });
+        return slider;
     }
 
 });

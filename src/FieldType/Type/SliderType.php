@@ -55,7 +55,7 @@ class SliderType extends AbstractType
             }
         }
 
-        echo sprintf( "<div %s>%s<input type=\"hidden\" name='{$fieldType->_name()}' id=\"{$fieldType->_id()}\" class='slider-image'/></div>",
+        echo sprintf( "<div %s>%s</div><input type=\"hidden\" name='{$fieldType->_name()}' id=\"{$fieldType->_id()}\" class='slider-image'/>",
             $attrs,
             $images
         );
