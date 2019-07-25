@@ -2,10 +2,10 @@
   "entrypoints": {
     "field": {
       "css": [
-        "/dist/css/field.css"
+        "/build_dist/css/field.css"
       ],
       "js": [
-        "/dist/js/field.js"
+        "/build_dist/js/field.js"
       ]
     }
   }

@@ -8,9 +8,9 @@ Encore
         images: 'img/[name].[ext]',
         fonts: 'font/[name].[ext]'
     })
-    .setOutputPath('./dist')
-    .setPublicPath('/dist')
-    .setManifestKeyPrefix('dist')
+    .setOutputPath('./build_dist')
+    .setPublicPath('/build_dist')
+    .setManifestKeyPrefix('build_dist')
     .cleanupOutputBeforeBuild()
     .enableSassLoader(function (sassOptions) {
     }, {
