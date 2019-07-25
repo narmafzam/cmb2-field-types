@@ -23,12 +23,12 @@ class Asset extends BaseClass
     {
         wp_enqueue_script(
             self::FIELD_TYPE_SCRIPT,
-            Utility::getAssetUrl('/js/field.js'),
+            Utility::getAssetUrl('/js/field.js', __DIR__),
             array('jquery')
         );
         wp_enqueue_style(
             self::FIELD_TYPE_STYLE,
-            Utility::getAssetUrl('/css/field.css')
+            Utility::getAssetUrl('/css/field.css', __DIR__)
         );
     }
 }
