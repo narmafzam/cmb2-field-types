@@ -42,8 +42,7 @@
   margin-top: 34px;
 }
 
-.pmpr-switch input + label:before,
-.pmpr-switch input + label:after {
+.pmpr-switch input + label:before, .pmpr-switch input + label:after {
   display: block;
   position: absolute;
   top: 0;
@@ -55,7 +54,6 @@
 }
 
 .pmpr-switch input + label:before {
-  left: 1px;
   background-color: #f1f1f1;
   border: 1px solid #e5e5e5;
   border-radius: 60px;
@@ -77,7 +75,7 @@
 }
 
 .pmpr-switch input:checked + label:after {
-  margin-#{$right}: 22px;
+  margin-#{$left}: 22px;
 }
 
 #postbox-container-1 #side-sortables .pmpr-box-form .pmpr-switch .cmb-td {
@@ -102,7 +100,7 @@
 .pmpr-switch .cmb2-list input + label {
   display: block;
   line-height: 24px;
-  margin-#{$right}: 52px;
+  margin-#{$left}: 52px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -154,21 +152,21 @@ li.requirement-row .requirement-header .requirement-actions .requirement-action 
 .pmpr-page .pmpr-switch input + label:before,
 .pmpr-page .pmpr-switch input + label:after {
   top: 4px;
-  #{$left}: auto;
-  #{$right}: 0;
+  #{$left}: 0;
+  #{$right}: auto;
 }
 
 .pmpr-page .pmpr-switch:not(.cmb-type-multicheck) .cmb2-metabox-description {
   display: inline-block;
-  margin-#{$right}: 50px;
-  margin-top: 7px;
+  margin-#{$left}: 50px;
+  margin-top: 8px;
 }
 
 .pmpr-page .pmpr-switch .cmb2-list input + label:before,
 .pmpr-page .pmpr-switch .cmb2-list input + label:after {
   top: 0;
-  #{$left}: auto;
-  #{$right}: 0;
+  #{$left}: 0;
+  #{$right}: auto;
 }
 
 .pmpr-page .postbox .hndle .dashicons {
