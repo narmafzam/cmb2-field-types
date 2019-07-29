@@ -28,7 +28,9 @@ class Asset extends BaseClass
         );
         wp_enqueue_style(
             self::FIELD_TYPE_STYLE,
-            Utility::getAssetUrl('/css/field.css', __DIR__)
+            function_exists('get_locale') && get_locale() === 'fa_IR'
+                ? Utility::getAssetUrl('/css/field-rtl.css', __DIR__)
+                : Utility::getAssetUrl('/css/field.css', __DIR__)
         );
     }
 }

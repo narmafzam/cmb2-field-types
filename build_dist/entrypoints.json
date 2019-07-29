@@ -7,6 +7,11 @@
       "js": [
         "/build_dist/js/field.js"
       ]
+    },
+    "field-rtl": {
+      "css": [
+        "/build_dist/css/field-rtl.css"
+      ]
     }
   }
 }

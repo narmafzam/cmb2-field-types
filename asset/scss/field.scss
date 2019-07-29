@@ -1,28 +1,5 @@
-@import "~flickity/css/flickity.css";
-@import "~flickity-fade/flickity-fade.css";
-
-.slider-type {
-  max-height: 200px;
-}
-
-.image-container {
-  width: 100%;
-  height: 200px;
-  background: #222;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slider-image {
-  display: block;
-  height: 200px;
-  /* set min-width,
-     allow images to determine cell width */
-  min-width: 150px;
-  max-width: 100%;
-  margin-right: 10px;
-  /* vertically center */
-  top: 50%;
-  transform: translateY(-50%)
-}
+$margin-right:  margin-right;
+$margin-left:   margin-left;
+$right:         left;
+$left:          right;
+@import "./common";

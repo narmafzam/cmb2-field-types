@@ -1,4 +1,5 @@
 {
   "build_dist/field.css": "/build_dist/css/field.css",
-  "build_dist/field.js": "/build_dist/js/field.js"
+  "build_dist/field.js": "/build_dist/js/field.js",
+  "build_dist/field-rtl.css": "/build_dist/css/field-rtl.css"
 }

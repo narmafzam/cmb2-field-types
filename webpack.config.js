@@ -17,6 +17,7 @@ Encore
         resolveUrlLoader: true
     })
     .addEntry('field', './asset/js/field.js')
+    .addStyleEntry('field-rtl', './asset/scss/field-rtl.scss')
     .enableVersioning()
     .enableSourceMaps(!Encore.isProduction())
 ;
