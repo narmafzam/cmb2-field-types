@@ -19,7 +19,7 @@
   height: 200px;
   min-width: 150px;
   max-width: 100%;
-  $margin-right: 10px;
+  margin-#{$right}: 10px;
   top: 50%;
   transform: translateY(-50%)
 }
@@ -48,9 +48,8 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  $right: 1px;
+  #{$right}: 1px;
   content: "";
-
   width: 44px;
   height: 22px;
 }
@@ -78,7 +77,7 @@
 }
 
 .pmpr-switch input:checked + label:after {
-  $margin-right: 22px;
+  margin-#{$right}: 22px;
 }
 
 #postbox-container-1 #side-sortables .pmpr-box-form .pmpr-switch .cmb-td {
@@ -103,7 +102,7 @@
 .pmpr-switch .cmb2-list input + label {
   display: block;
   line-height: 24px;
-  $margin-right: 52px;
+  margin-#{$right}: 52px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -134,7 +133,7 @@ li.requirement-row .requirement-header .requirement-actions .requirement-action 
 }
 
 .pmpr-switch.pmpr-switch-small input:checked + label:after {
-  $margin-right: 18px;
+  margin-#{$right}: 18px;
 }
 
 .pmpr-page .pmpr-switch input + label:before,
@@ -144,43 +143,43 @@ li.requirement-row .requirement-header .requirement-actions .requirement-action 
 
 .pmpr-page .nav-tab .dashicons {
   vertical-align: middle;
-  $margin-right: 2px;
+  margin-#{$right}: 2px;
 }
 
 .pmpr-page input[name="submit-cmb"] {
   float: $left;
-  $margin-left: 12px;
+  margin-#{$left}: 12px;
 }
 
 .pmpr-page .pmpr-switch input + label:before,
 .pmpr-page .pmpr-switch input + label:after {
   top: 4px;
-  $left: auto;
-  $right: 0;
+  #{$left}: auto;
+  #{$right}: 0;
 }
 
 .pmpr-page .pmpr-switch:not(.cmb-type-multicheck) .cmb2-metabox-description {
   display: inline-block;
-  $margin-right: 50px;
+  margin-#{$right}: 50px;
   margin-top: 7px;
 }
 
 .pmpr-page .pmpr-switch .cmb2-list input + label:before,
 .pmpr-page .pmpr-switch .cmb2-list input + label:after {
   top: 0;
-  $left: auto;
-  $right: 0;
+  #{$left}: auto;
+  #{$right}: 0;
 }
 
 .pmpr-page .postbox .hndle .dashicons {
   height: 20px;
   line-height: 20px;
-  $margin-right: 6px;
+  margin-#{$right}: 6px;
   margin-top: -3px;
 }
 
 .pmpr-page .cmb-tabs-wrap .cmb-tabs .cmb-tab .cmb-tab-icon {
-  $margin-right: 2px;
+  margin-r#{$right}: 2px;
   opacity: 0.4;
 }
 
@@ -197,7 +196,7 @@ li.requirement-row .requirement-header .requirement-actions .requirement-action 
 }
 
 .pmpr-page .cmb-type-multi-buttons .button + .button {
-  $margin-right: 10px;
+  margin-#{$right}: 10px;
 }
 
 .pmpr-page .button .dashicons {
@@ -210,14 +209,14 @@ li.requirement-row .requirement-header .requirement-actions .requirement-action 
 
 .pmpr-page input[name="submit-cmb"] {
   float: $right;
-  $margin-right: 12px;
+  margin-#{$right}: 12px;
 }
 
 .pmpr-page .nav-tab .dashicons {
   vertical-align: middle;
   margin-bottom: 2px;
   margin-top: -2px;
-  $margin-left: 2px;
+  margin-#{$left}: 2px;
 }
 
 .pmpr-page.cmb2-options-page {
@@ -246,7 +245,7 @@ li.requirement-row .requirement-header .requirement-actions .requirement-action 
 
 .pmpr-page.cmb2-options-page .cmb-tabs-wrap .cmb2-wrap .cmb2-metabox > .cmb-row.cmb-type-title {
   margin-top: -1px;
-  $margin-right: -11px;
+  margin-#{$right}: -11px;
 }
 
 .pmpr-page.cmb2-options-page .cmb2-wrap .cmb-type-title .cmb2-metabox-title {
