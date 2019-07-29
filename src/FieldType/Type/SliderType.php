@@ -32,13 +32,6 @@ class SliderType extends AbstractType
             $attrs   = self::generateAttrs($fieldType, [], $attrs);
         }
 
-//        $defaultClass = 'image-container';
-//        if ( isset( $field->args['image-container-attr'] )) {
-//            $imageContainerAttr   = self::generateAttrs($fieldType, $field->args['image-container-attr'], ['class' => $defaultClass]);
-//        } else {
-//            $imageContainerAttr   = self::generateAttrs($fieldType, [], ['class' => $defaultClass]);
-//        }
-
         $defaultClass = 'slider-image';
         if ( isset( $field->args['image-attr'] )) {
             $imageAttrs   = self::generateAttrs($fieldType, $field->args['image-attr'], ['class' => $defaultClass]);
