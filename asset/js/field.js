@@ -82,8 +82,9 @@ $(document).ready(function () {
     function storeSelectedElement(slider) {
         let flkty = slider.data('flickity');
         let selected = flkty.selectedElement;
-        slider.parent().find('input').val($(selected).attr('src'));
+        slider.parent().find('input').val($(selected).data('id'));
     }
+
     $('.ignorable').each(function () {
         ignoreField($(this));
     });

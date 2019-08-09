@@ -41,9 +41,9 @@ class SliderType extends AbstractType
 
         $images     = '';
         if ( isset( $field->args['images'] ) ) {
-            foreach ( $field->args['images'] as $alt => $image ) {
+            foreach ( $field->args['images'] as $id => $image ) {
                 if ( ! empty( $image ) ) {
-                    $images .= "<img src=\"{$image}\" alt=\"...\" {$imageAttrs}/>";
+                    $images .= "<img src=\"{$image}\" data-id=\"{$id}\" {$imageAttrs}/>";
                 }
             }
         }
