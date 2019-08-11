@@ -43,7 +43,7 @@ class SliderType extends AbstractType
         if ( isset( $field->args['images'] ) ) {
             foreach ( $field->args['images'] as $id => $image ) {
                 if ( ! empty( $image ) ) {
-                    $images .= "<img src=\"{$image}\" data-id=\"{$id}\" {$imageAttrs}/>";
+                    $images .= "<img data-flickity-lazyload-src=\"{$image}\" data-id=\"{$id}\" {$imageAttrs}/>";
                 }
             }
         }
