@@ -27,7 +27,7 @@ class DisplayType extends AbstractType
             'id'      => $fieldType->_id(),
         ) );
 
-        echo sprintf( '<span%s>%s</span>%s',
+        echo sprintf( '<div%s>%s</div>%s',
             $fieldType->concat_attrs( $attrs ),
             $value,
             $fieldType->_desc( true )

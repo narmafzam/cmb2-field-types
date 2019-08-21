@@ -26,7 +26,7 @@ class ButtonType extends AbstractType
             'class'   => 'button ' . ( isset( $field->args['button'] ) && ! empty( $field->args['button'] ) ? 'button-' . $field->args['button'] : '' ),
         ) );
 
-        $button_pattern = '%s<button %s>%s</button>';
+        $button_pattern = '%s<button %s>%s</button>%s';
 
         if( isset( $field->args['action'] ) && ! empty( $field->args['action'] ) ) {
             $attrs['name'] = 'gamipress-action';
@@ -43,7 +43,9 @@ class ButtonType extends AbstractType
         echo sprintf( $button_pattern,
             $fieldType->_desc( true ),
             $fieldType->concat_attrs( $attrs ),
-            $icon_html . ( isset( $field->args['label'] ) && ! empty( $field->args['label'] ) ? $field->args['label'] : $field->args( 'name' ) )
+            $icon_html . ( isset( $field->args['label'] ) && ! empty( $field->args['label'] ) ? $field->args['label'] : $field->args( 'name' ) ),
+            ( isset( $field->args['message'] ) ? $field->args['message'] : "<span class='messate' id='{$fieldType->_id()}_message'></span>")
+
         );
     }
 }
