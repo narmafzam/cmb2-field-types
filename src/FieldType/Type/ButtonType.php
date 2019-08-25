@@ -18,41 +18,41 @@ class ButtonType extends AbstractType
 
     public static function render($field, $value, $objectId, $objectType, $fieldType)
     {
-        echo self::generateButton('button', $field, $fieldType);
+        echo self::generateButton('button', $field->args, $fieldType);
     }
 
-    public static function generateButton($type, $button, $fieldType)
+    public static function generateButton($type, $args, $fieldType)
     {
         $attrs = $fieldType->parse_args( $type, array(
             'type'    => 'button',
-            'element' => ( isset( $field->args['element'] ) && ! empty( $button['element'] ) ?  $button['element'] : 'button' ),
+            'element' => ( isset( $field->args['element'] ) && ! empty( $args['element'] ) ?  $args['element'] : 'button' ),
             'name'    => $fieldType->_name(),
             'id'      => $fieldType->_id(),
-            'class'   => 'button ' . ( isset( $button['button'] ) && ! empty( $button['button'] ) ? 'button-' . $button['button'] : '' ),
+            'class'   => 'button ' . ( isset( $args['button'] ) && ! empty( $args['button'] ) ? 'button-' . $args['button'] : '' ),
         ) );
 
-        if( isset( $button['action'] )
-            && ! empty( $button['action'] ) ) {
+        if( isset( $args['action'] )
+            && ! empty( $args['action'] ) ) {
 
             $attrs['name']  = 'pmpr-action';
-            $attrs['value'] = $button['action'];
+            $attrs['value'] = $args['action'];
             $attrs['type']  = 'submit';
         }
 
 
-        if( isset( $button['type'] )
-            && $button['type'] === 'link' ) {
+        if( isset( $args['type'] )
+            && $args['type'] === 'link' ) {
 
             $href = 'javascript:void(0);';
 
-            if( isset( $button['link'] ) ) {
-                $href = $button['link'];
+            if( isset( $args['link'] ) ) {
+                $href = $args['link'];
             }
 
             $attrs['href'] = $href;
 
-            if( isset( $button['target'] ) ) {
-                $attrs['target'] = $button['target'];
+            if( isset( $args['target'] ) ) {
+                $attrs['target'] = $args['target'];
             }
 
             $element = 'a';
@@ -63,18 +63,20 @@ class ButtonType extends AbstractType
 
         $icon_html = '';
 
-        if( isset( $button['icon'] ) && ! empty( $button['icon'] ) ) {
-            $icon_html = '<i class="dashicons dashicons-' . $button['icon'] . '"></i>';
+        if( isset( $args['icon'] ) && ! empty( $args['icon'] ) ) {
+            $icon_html = '<i class="dashicons dashicons-' . $args['icon'] . '"></i>';
         }
 
         $pattern = '%s<%s %s>%s</%s>%s';
-        return sprintf( $pattern,
-            $element,
+        $output = sprintf( $pattern,
             $fieldType->_desc( true ),
-            $fieldType->concat_attrs( $attrs ),
-            $icon_html . ( isset( $field->args['label'] ) && ! empty( $button['label'] ) ? $button['label'] : $fieldType->_name() ),
             $element,
-            ( isset( $field->args['message'] ) ? $button['message'] : "<span class='messate' id='{$fieldType->_id()}_message'></span>")
+            $fieldType->concat_attrs( $attrs ),
+            $icon_html . ( isset( $args['label'] ) && ! empty( $args['label'] ) ? $args['label'] : $args['name'] ),
+            $element,
+            ( isset( $args['message'] ) ? $args['message'] : "<span class='messate' id='{$fieldType->_id()}_message'></span>")
         );
+
+        return $output;
     }
 }
