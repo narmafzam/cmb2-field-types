@@ -134,70 +134,70 @@ li.requirement-row .requirement-header .requirement-actions .requirement-action 
   margin-#{$right}: 18px;
 }
 
-.pmpr-page .pmpr-switch input + label:before,
-.pmpr-page .pmpr-switch input + label:after {
+.pmpr-switch input + label:before,
+.pmpr-switch input + label:after {
   top: 22px;
 }
 
-.pmpr-page .nav-tab .dashicons {
+.nav-tab .dashicons {
   vertical-align: middle;
   margin-#{$right}: 2px;
 }
 
-.pmpr-page input[name="submit-cmb"] {
+input[name="submit-cmb"] {
   float: $left;
   margin-#{$left}: 12px;
 }
 
-.pmpr-page .pmpr-switch input + label:before,
-.pmpr-page .pmpr-switch input + label:after {
+.pmpr-switch input + label:before,
+.pmpr-switch input + label:after {
   top: 4px;
   #{$left}: 0;
   #{$right}: auto;
 }
 
-.pmpr-page .pmpr-switch:not(.cmb-type-multicheck) .cmb2-metabox-description {
+.pmpr-switch:not(.cmb-type-multicheck) .cmb2-metabox-description {
   display: inline-block;
   margin-#{$left}: 50px;
   margin-top: 8px;
 }
 
-.pmpr-page .pmpr-switch .cmb2-list input + label:before,
-.pmpr-page .pmpr-switch .cmb2-list input + label:after {
+.pmpr-switch .cmb2-list input + label:before,
+.pmpr-switch .cmb2-list input + label:after {
   top: 0;
   #{$left}: 0;
   #{$right}: auto;
 }
 
-.pmpr-page .postbox .hndle .dashicons {
+.postbox .hndle .dashicons {
   height: 20px;
   line-height: 20px;
   margin-#{$right}: 6px;
   margin-top: -3px;
 }
 
-.pmpr-page .cmb-tabs-wrap .cmb-tabs .cmb-tab .cmb-tab-icon {
+.cmb-tabs-wrap .cmb-tabs .cmb-tab .cmb-tab-icon {
   margin-r#{$right}: 2px;
   opacity: 0.4;
 }
 
-.pmpr-page .cmb-tabs-wrap .cmb-tabs .cmb-tab.active .cmb-tab-icon {
+.cmb-tabs-wrap .cmb-tabs .cmb-tab.active .cmb-tab-icon {
   opacity: 0.8;
 }
 
-.pmpr-page .cmb-type-button .cmb-td p.cmb2-metabox-description,
-.pmpr-page .cmb-type-multi-buttons .cmb-td p.cmb2-metabox-description {
+.cmb-type-button .cmb-td p.cmb2-metabox-description,
+.cmb-type-multi-buttons .cmb-td p.cmb2-metabox-description {
   margin-top: -1em;
   margin-bottom: 1em;
   color: #444;
   font-style: normal;
 }
 
-.pmpr-page .cmb-type-multi-buttons .button + .button {
+.cmb-type-multi-buttons .button + .button {
   margin-#{$right}: 10px;
 }
 
-.pmpr-page .button .dashicons {
+.button .dashicons {
   display: inline-block;
   width: 18px;
   height: 18px;
@@ -205,12 +205,12 @@ li.requirement-row .requirement-header .requirement-actions .requirement-action 
   margin: 0 2px 0 0;
 }
 
-.pmpr-page input[name="submit-cmb"] {
+input[name="submit-cmb"] {
   float: $right;
   margin-#{$right}: 12px;
 }
 
-.pmpr-page .nav-tab .dashicons {
+.nav-tab .dashicons {
   vertical-align: middle;
   margin-bottom: 2px;
   margin-top: -2px;
@@ -230,7 +230,7 @@ li.requirement-row .requirement-header .requirement-actions .requirement-action 
   border-top: 1px solid #e9e9e9;
 }
 
-.pmpr-page .postbox h2.hndle {
+.postbox h2.hndle {
   background: #fafafa;
   color: #23282d;
 }
@@ -256,7 +256,7 @@ li.requirement-row .requirement-header .requirement-actions .requirement-action 
   margin-top: -12px;
 }
 
-.pmpr-page .cmb-row.cmb-type-title .cmb2-metabox-title {
+.cmb-row.cmb-type-title .cmb2-metabox-title {
   margin-top: 0;
   padding: 8px 0 0 0;
 }
@@ -267,7 +267,7 @@ li.requirement-row .requirement-header .requirement-actions .requirement-action 
   cursor: default;
 }
 
-.pmpr-page input[name="submit-cmb"], .pmpr-page input[name="reset-cmb"] {
+input[name="submit-cmb"], input[name="reset-cmb"] {
   float: $left;
 }
 
