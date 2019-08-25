@@ -18,37 +18,63 @@ class ButtonType extends AbstractType
 
     public static function render($field, $value, $objectId, $objectType, $fieldType)
     {
-        // Parse args
-        $attrs = $fieldType->parse_args( 'button', array(
+        echo self::generateButton('button', $field, $fieldType);
+    }
+
+    public static function generateButton($type, $button, $fieldType)
+    {
+        $attrs = $fieldType->parse_args( $type, array(
             'type'    => 'button',
-            'element' => ( isset( $field->args['element'] ) && ! empty( $field->args['element'] ) ?  $field->args['element'] : 'button' ),
+            'element' => ( isset( $field->args['element'] ) && ! empty( $button['element'] ) ?  $button['element'] : 'button' ),
             'name'    => $fieldType->_name(),
             'id'      => $fieldType->_id(),
-            'class'   => 'button ' . ( isset( $field->args['button'] ) && ! empty( $field->args['button'] ) ? 'button-' . $field->args['button'] : '' ),
+            'class'   => 'button ' . ( isset( $button['button'] ) && ! empty( $button['button'] ) ? 'button-' . $button['button'] : '' ),
         ) );
 
-        $element        = $attrs['element'];
-        $button_pattern = '%s<%s %s>%s</%s>%s';
+        if( isset( $button['action'] )
+            && ! empty( $button['action'] ) ) {
 
-        if( isset( $field->args['action'] ) && ! empty( $field->args['action'] ) ) {
-            $attrs['name'] = 'gamipress-action';
-            $attrs['value'] = $field->args['action'];
-            $attrs['type'] = 'submit';
+            $attrs['name']  = 'pmpr-action';
+            $attrs['value'] = $button['action'];
+            $attrs['type']  = 'submit';
+        }
+
+
+        if( isset( $button['type'] )
+            && $button['type'] === 'link' ) {
+
+            $href = 'javascript:void(0);';
+
+            if( isset( $button['link'] ) ) {
+                $href = $button['link'];
+            }
+
+            $attrs['href'] = $href;
+
+            if( isset( $button['target'] ) ) {
+                $attrs['target'] = $button['target'];
+            }
+
+            $element = 'a';
+        } else {
+
+            $element = 'button';
         }
 
         $icon_html = '';
 
-        if( isset( $field->args['icon'] ) && ! empty( $field->args['icon'] ) ) {
-            $icon_html = '<i class="dashicons ' . $field->args['icon'] . '"></i>';
+        if( isset( $button['icon'] ) && ! empty( $button['icon'] ) ) {
+            $icon_html = '<i class="dashicons dashicons-' . $button['icon'] . '"></i>';
         }
 
-        echo sprintf( $button_pattern,
-
+        $pattern = '%s<%s %s>%s</%s>%s';
+        return sprintf( $pattern,
+            $element,
             $fieldType->_desc( true ),
             $fieldType->concat_attrs( $attrs ),
-            $icon_html . ( isset( $field->args['label'] ) && ! empty( $field->args['label'] ) ? $field->args['label'] : $field->args( 'name' ) ),
-            ( isset( $field->args['message'] ) ? $field->args['message'] : "<span class='messate' id='{$fieldType->_id()}_message'></span>")
-
+            $icon_html . ( isset( $field->args['label'] ) && ! empty( $button['label'] ) ? $button['label'] : $fieldType->_name() ),
+            $element,
+            ( isset( $field->args['message'] ) ? $button['message'] : "<span class='messate' id='{$fieldType->_id()}_message'></span>")
         );
     }
 }

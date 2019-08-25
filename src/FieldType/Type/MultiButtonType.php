@@ -26,38 +26,7 @@ class MultiButtonType extends AbstractType
 
         foreach( $field->args['buttons'] as $button_id => $button ) {
 
-            $attrs = $fieldType->parse_args( 'multibutton', array(
-                'class'   => 'button ' . ( isset( $button['button'] ) && ! empty( $button['button'] ) ? 'button-' . $button['button'] : '' ),
-                'id'      => $button_id,
-            ) );
-
-            $button_pattern = '<button type="button" %s>%s</button>';
-
-            if( isset( $button['type'] ) && $button['type'] === 'link' ) {
-
-                $href = 'javascript:void(0);';
-
-                if( isset( $button['link'] ) ) {
-                    $href = $button['link'];
-                }
-
-                if( isset( $button['target'] ) ) {
-                    $attrs['target'] = $button['target'];
-                }
-
-                $button_pattern = '<a href="' . $href . '" %s>%s</a>';
-            }
-
-            $icon_html = '';
-
-            if( isset( $button['icon'] ) && ! empty( $button['icon'] ) ) {
-                $icon_html = '<i class="dashicons ' . $button['icon'] . '"></i>';
-            }
-
-            echo sprintf( $button_pattern,
-                $fieldType->concat_attrs( $attrs ),
-                $icon_html . ( isset( $button['label'] ) && ! empty( $button['label'] ) ? $button['label'] : '' )
-            );
+            echo ButtonType::generateButton('multibutton', $button, $fieldType);
         }
     }
 
