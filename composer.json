@@ -21,8 +21,7 @@
   "require": {
     "php": ">=7.2",
     "narmafzam/cmb2": "dev-master",
-    "narmafzam/generic": "1.0.7",
-    "narmafzam/cmb2-field-types": "1.3.6"
+    "narmafzam/generic": "1.0.7"
   },
   "minimum-stability": "dev"
 }
