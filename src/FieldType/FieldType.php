@@ -12,15 +12,15 @@ use FieldType\Type\SliderType;
 
 class FieldType
 {
-    public static function init()
-    {
-        Asset::init();
-        AdvanceSelectType::init();
-        MultiButtonType::init();
-        DisplayType::init();
-        ButtonType::init();
-        SliderType::init();
-        HtmlType::init();
-        SizeType::init();
-    }
+	public static function init()
+	{
+		Asset::init();
+		AdvanceSelectType::init();
+		MultiButtonType::init();
+		DisplayType::init();
+		ButtonType::init();
+		SliderType::init();
+		HtmlType::init();
+		SizeType::init();
+	}
 }
