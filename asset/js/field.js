@@ -72,7 +72,7 @@ $(document).ready(function () {
 
     function initSlider(selector) {
         let slider = $(selector).flickity(options);
-        slider.on( 'change.flickity', function( event, index ) {
+        slider.on('change.flickity', function (event, index) {
             storeSelectedElement(slider)
         });
         storeSelectedElement(slider);
@@ -97,7 +97,6 @@ $(document).ready(function () {
         uncheckOthers($(this));
     });
 
-
     $('.postbox').on('change',
         '.ignorable, .reverse-ignorable'
         , function () {
@@ -105,32 +104,42 @@ $(document).ready(function () {
         });
 
     function ignoreField(element, forceIgnore = false) {
-        let input = element.find('input');
-        if (input.length && !element.hasClass('already-checked')) {
-            let targets = input.data('target');
-            if (targets.length) {
-                targets = targets.split(",");
-                targets.forEach(function (item, index) {
-                    item = $('#' + item.replace(/\s/g, ""));
-                    if (item.length) {
-                        let target = item.closest('.cmb-row');
-                        if ((!input.prop('checked') && element.hasClass('ignorable')) || (input.prop('checked') && element.hasClass('reverse-ignorable')) || forceIgnore) {
-                            if (target.hasClass('ignorable') || target.hasClass('reverse-ignorable')) {
-                                ignoreField(target, true);
-                                target.addClass('already-checked');
-                            }
-                            target.slideUp(250).addClass('cmb2-tab-ignore');
-                        } else {
-                            if (target.hasClass('ignorable') || target.hasClass('reverse-ignorable')) {
-                                target.removeClass('already-checked');
-                                ignoreField(target)
-                            }
-                            target.slideDown(250).removeClass('cmb2-tab-ignore');
-                        }
-                    }
-                });
-            }
+        let inputs;
+        if (!element.is('input')) {
+
+            inputs = element.find('input');
+        } else {
+
+            inputs = element;
         }
+        inputs.each(function (index, input) {
+            input = $(input);
+            if (input.length > 0 && !element.hasClass('already-checked')) {
+                let targets = input.data('target');
+                if (targets.length) {
+                    targets = targets.split(",");
+                    targets.forEach(function (item, index) {
+                        item = $('#' + item.replace(/\s/g, ""));
+                        if (item.length) {
+                            let target = item.closest('.cmb-row');
+                            if ((!input.prop('checked') && element.hasClass('ignorable')) || (input.prop('checked') && element.hasClass('reverse-ignorable')) || forceIgnore) {
+                                if (target.hasClass('ignorable') || target.hasClass('reverse-ignorable')) {
+                                    ignoreField(target, true);
+                                    target.addClass('already-checked');
+                                }
+                                target.slideUp(250).addClass('cmb2-tab-ignore');
+                            } else {
+                                if (target.hasClass('ignorable') || target.hasClass('reverse-ignorable')) {
+                                    target.removeClass('already-checked');
+                                    ignoreField(target)
+                                }
+                                target.slideDown(250).removeClass('cmb2-tab-ignore');
+                            }
+                        }
+                    });
+                }
+            }
+        });
     }
 
     $('.postbox').on('change',
