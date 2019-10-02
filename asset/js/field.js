@@ -97,7 +97,7 @@ $(document).ready(function () {
         uncheckOthers($(this));
     });
 
-    $('.postbox').on('change',
+    $('.cmb2-metabox').on('change',
         '.ignorable, .reverse-ignorable'
         , function () {
             ignoreField($(this));
