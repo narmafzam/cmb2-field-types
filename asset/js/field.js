@@ -2,6 +2,8 @@ require('../scss/field.scss');
 
 import $ from "jquery";
 
+let jQuery = $;
+
 import jQueryBridget from "jquery-bridget";
 import Flickity from "flickity";
 import "flickity-imagesloaded";
@@ -48,28 +50,6 @@ $(document).ready(function () {
         return elementBottom > viewportTop && elementTop < viewportBottom;
     }
 
-    $('body').on('click', '.cmb-add-group-row', function () {
-        let newSlider = getGroupLastRow($(this)).find('.slider-type');
-        if (newSlider.length > 0 && newSlider.hasClass('flickity-enabled')) {
-            reinitializedFlickity(newSlider.find('.slider-image'))
-        }
-    });
-
-    function getGroupLastRow(element) {
-        let table = $('#' + element.data('selector'));
-        return table.find('.cmb-repeatable-grouping').last();
-    }
-
-    function reinitializedFlickity(imageChilds) {
-        imageChilds.parent().parent().replaceWith(imageChilds);
-        imageChilds.parent().find('button').remove();
-        if (true === options.pageDots || !'pageDots' in options) {
-            imageChilds.parent().find('ol').remove();
-        }
-        imageChilds.parent().removeClass('flickity-enabled');
-        initSlider(imageChilds.parent())
-    }
-
     function initSlider(selector) {
         let slider = $(selector).flickity(options);
         slider.on('change.flickity', function (event, index) {
@@ -78,6 +58,13 @@ $(document).ready(function () {
         storeSelectedElement(slider);
         return slider;
     }
+
+    $('body').on('click', '.cmb-add-group-row', function () {
+        let newSlider = $(this).getGroupSlider();
+        if (newSlider.length > 0) {
+            initSlider(newSlider);
+        }
+    });
 
     function storeSelectedElement(slider) {
         let flkty = slider.data('flickity');
@@ -190,3 +177,12 @@ $(document).ready(function () {
         }
     }
 });
+
+(function ($) {
+    $.fn.getGroupSlider = function () {
+        let $this;
+        $this = $(this);
+        return $this.closest('.repeatable')
+            .find('.slider-type');
+    };
+})(jQuery);
