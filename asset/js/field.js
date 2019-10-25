@@ -52,8 +52,10 @@ $(document).ready(function () {
 
     function initSlider(selector) {
         let slider = $(selector).flickity(options);
-        slider.on('change.flickity', function (event, index) {
-            storeSelectedElement(slider)
+        slider.each(function (index, item) {
+            $(item).on('change.flickity', function (e) {
+                storeSelectedElement($(item));
+            });
         });
         storeSelectedElement(slider);
         return slider;
@@ -67,9 +69,9 @@ $(document).ready(function () {
     });
 
     function storeSelectedElement(slider) {
-        let flkty = slider.data('flickity');
-        let selected = flkty.selectedElement;
-        slider.parent().find('input').val($(selected).data('id'));
+        let selected = $(slider.data('flickity').selectedElement)
+            .data('id');
+        slider.parent().find('input').val(selected);
     }
 
     $('.ignorable').each(function () {
