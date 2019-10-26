@@ -12,23 +12,16 @@ import "flickity-as-nav-for";
 import "flickity-fade";
 
 $(document).ready(function () {
-    let options = {
-        rightToLeft: true,
-        lazyLoad: true,
-        pageDots: false
-    };
     Flickity.setJQuery($);
     jQueryBridget('flickity', Flickity, $);
-    let initSliders = {};
     let observer = new MutationObserver(function (mutations) {
 
         $('.slider-type').each(function (index, item) {
-            if (isInViewport($(item))) {
+            let $slider = $(item);
+            if (isInViewport($slider)) {
                 let id = item.id;
-                let name = $(item).attr('name').split('[')[0];
-                let alreadyExist = name in initSliders;
-                if (!alreadyExist) {
-                    initSliders[name] = initSlider('#' + id);
+                if (!$slider.hasClass('flickity-enabled')) {
+                    $('#' + id).initSlider();
                 }
             }
         });
@@ -47,32 +40,17 @@ $(document).ready(function () {
         let viewportTop = $(window).scrollTop();
         let viewportBottom = viewportTop + $(window).height();
 
-        return elementBottom > viewportTop && elementTop < viewportBottom;
-    }
-
-    function initSlider(selector) {
-        let slider = $(selector).flickity(options);
-        slider.each(function (index, item) {
-            $(item).on('change.flickity', function (e) {
-                storeSelectedElement($(item));
-            });
-        });
-        storeSelectedElement(slider);
-        return slider;
+        return elementBottom > viewportTop
+            && elementTop < viewportBottom;
     }
 
     $('body').on('click', '.cmb-add-group-row', function () {
-        let newSlider = $(this).getGroupSlider();
-        if (newSlider.length > 0) {
-            initSlider(newSlider);
+        let $slider = $(this).getUnInitSlider();
+        if ($slider.length > 0) {
+
+            $slider.initSlider();
         }
     });
-
-    function storeSelectedElement(slider) {
-        let selected = $(slider.data('flickity').selectedElement)
-            .data('id');
-        slider.parent().find('input').val(selected);
-    }
 
     $('.ignorable').each(function () {
         ignoreField($(this));
@@ -181,10 +159,31 @@ $(document).ready(function () {
 });
 
 (function ($) {
-    $.fn.getGroupSlider = function () {
+    $.fn.getUnInitSlider = function () {
         let $this;
         $this = $(this);
         return $this.closest('.repeatable')
-            .find('.slider-type');
+            .find('.slider-type:not(.flickity-enabled)');
     };
+
+    $.fn.initSlider = function () {
+        let $slider = $(this).flickity({
+            rightToLeft: true,
+            lazyLoad: true,
+            pageDots: false
+        });
+        $slider.on('change.flickity', function (e) {
+
+            $slider.storeSelectedImage();
+        });
+        $slider.storeSelectedImage();
+        return $slider;
+    };
+
+    $.fn.storeSelectedImage = function () {
+        let $slider = $(this);
+        let selected = $($slider.data('flickity').selectedElement)
+            .data('id');
+        $slider.parent().find('input').val(selected);
+    }
 })(jQuery);
