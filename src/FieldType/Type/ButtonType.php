@@ -74,7 +74,7 @@ class ButtonType extends AbstractType
 			$fieldType->concat_attrs($attrs),
 			$icon_html . (isset($args['label']) && !empty($args['label']) ? $args['label'] : $args['name']),
 			$element,
-			(isset($args['message']) ? $args['message'] : "<span class='messate' id='{$fieldType->_id()}_message'></span>")
+			(isset($args['message']) ? $args['message'] : "<span class='message' id='{$fieldType->_id()}_message'></span>")
 		);
 
 		return $output;
